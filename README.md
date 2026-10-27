@@ -9,7 +9,7 @@ An educational cryptography project exploring secure email communication using e
 
 Originally developed in Java as my Bachelor's graduation project in Computer Science, this project was later revisited and reimplemented in Python to explore modern cryptographic techniques and improve the original design.
 
-🎯 Project Overview
+## 🎯 Project Overview
 
 The project demonstrates how cryptographic techniques can be applied to protect email content.
 
@@ -18,7 +18,7 @@ It combines two learning objectives:
 1. Understanding elliptic curve cryptography through an educational implementation.
 2. Exploring modern hybrid encryption techniques using Python.
 
-🛠️ Technologies
+## 🛠️ Technologies
 
 - Python — Main programming language
 - X25519 — Elliptic-curve key agreement
@@ -27,7 +27,7 @@ It combines two learning objectives:
 - SMTP / IMAP — Email communication
 - pytest — Automated testing
 
-📂 Project 
+## 📂 Project 
 
 ```text
 ecc-email-encryption/
@@ -47,7 +47,7 @@ ecc-email-encryption/
 └── requirements.txt
 ```
 
-🔄 Project Evolution
+## 🔄 Project Evolution
 
 Original Academic Project — Java
 
@@ -59,7 +59,7 @@ I revisited the original concept and developed a Python implementation using mod
 
 The project also preserves a simplified ECC implementation for educational purposes.
 
-🔒 Security Notes
+## 🔒 Security Notes
 
 This repository is intended for educational and experimental use.
 
@@ -69,7 +69,7 @@ The project has not undergone an independent security audit and should not be co
 
 Never commit real email passwords, API keys, or ".env" files.
 
-🧪 Testing
+## 🧪 Testing
 
 The repository includes automated tests for the cryptographic components and application functionality.
 
@@ -77,7 +77,7 @@ To run the tests after installing the project dependencies:
 
 python -m pytest
 
-👩‍💻 Developer
+## 👩‍💻 Developer
 
 Abeer Eissa
 
