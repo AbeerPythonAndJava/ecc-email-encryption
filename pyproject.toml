@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ecc-mail"
+version = "1.0.0"
+description = "End-to-end email encryption with Elliptic Curve Cryptography (X25519 + AES-256-GCM)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Abeer" }]
+keywords = ["ecc", "elliptic-curve", "encryption", "email", "ecies", "x25519", "cryptography"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Security :: Cryptography",
+    "Topic :: Communications :: Email",
+]
+dependencies = ["cryptography>=42"]
+
+[project.optional-dependencies]
+dotenv = ["python-dotenv>=1.0"]
+dev = ["pytest>=8", "ruff>=0.5", "mypy>=1.10"]
+
+[project.scripts]
+ecc-mail = "ecc_mail.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
