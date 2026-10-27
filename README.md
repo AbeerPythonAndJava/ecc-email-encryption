@@ -24,8 +24,9 @@ It combines two learning objectives:
 - SMTP / IMAP — Email communication
 - pytest — Automated testing
 
-📂 Project Structure
+📂 Project 
 
+```text
 ecc-email-encryption/
 ├── src/
 │   └── ecc_mail/
@@ -41,6 +42,7 @@ ecc-email-encryption/
 ├── LICENSE
 ├── pyproject.toml
 └── requirements.txt
+```
 
 🔄 Project Evolution
 
