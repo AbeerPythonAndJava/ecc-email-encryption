@@ -1,4 +1,7 @@
-🔐 ECC Email Encryption — Python
+![ECC Email Encryption — From Java to Python](file_00000000d96481fabfc51913e4581b2c.png)
+
+
+# 🔐 ECC Email Encryption — Python
 
 From an Academic Java Project to a Modern Python Implementation
 
