@@ -59,11 +59,11 @@ def save_keypair(
         raise KeyError_(f"Keys already exist in {directory}; use overwrite=True.")
 
     encryption: serialization.KeySerializationEncryption
-    if passphrase:
-        encryption = serialization.BestAvailableEncryption(passphrase)
-    else:
-        logger.warning("Saving private key WITHOUT a passphrase.")
-        encryption = serialization.NoEncryption()
+
+    if not passphrase:
+        raise KeyError_("A passphrase is required to protect the private key.")
+
+    encryption = serialization.BestAvailableEncryption(passphrase)
 
     priv_pem = private_key.private_bytes(
         encoding=serialization.Encoding.PEM,

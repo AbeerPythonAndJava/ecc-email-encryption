@@ -10,7 +10,6 @@
 """
 
 from __future__ import annotations
-
 import argparse
 import getpass
 import logging
@@ -33,11 +32,19 @@ logger = logging.getLogger("ecc_mail")
 DEFAULT_KEY_DIR = Path.home() / ".ecc_mail"
 
 
-def _passphrase(confirm: bool = False) -> bytes | None:
-    pw = getpass.getpass("Key passphrase (empty = none): ")
-    if confirm and pw and pw != getpass.getpass("Repeat passphrase: "):
-        raise EccMailError("Passphrases do not match.")
-    return pw.encode() if pw else None
+def _passphrase(confirm: bool = False) -> bytes:
+    pw = getpass.getpass("Key passphrase (required): ")
+
+    if not pw:
+        raise EccMailError("Passphrase cannot be empty.")
+
+    if confirm:
+        repeated_pw = getpass.getpass("Repeat passphrase: ")
+
+        if pw != repeated_pw:
+            raise EccMailError("Passphrases do not match.")
+
+    return pw.encode()
 
 
 def _read_text(path: str | None) -> str:

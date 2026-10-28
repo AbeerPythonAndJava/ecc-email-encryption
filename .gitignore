@@ -1,21 +1,24 @@
+# Secrets & keys
+.env
+*.pem
+.ecc_mail/
+
 # Python
 __pycache__/
 *.py[cod]
+*.egg-info/
+build/
+dist/
 .venv/
 venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
-# Environment variables
-.env
-.env.*
-
-# Keep the safe example
-!.env.example
-
-# IDE files
+# IDE / OS
 .idea/
 .vscode/
-
-# Testing
-.pytest_cache/
-.coverage
-htmlcov/
+.DS_Store
+# Manual testing files
+test_keys_manual/
+encrypted_message.txt

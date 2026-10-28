@@ -28,14 +28,23 @@ class TestKeys(unittest.TestCase):
     def test_no_accidental_overwrite(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             priv, _ = generate_keypair()
-            save_keypair(priv, tmp, None)
+
+            save_keypair(priv, tmp, passphrase=b"TestPassword123!")
+
             with self.assertRaises(KeyError_):
-                save_keypair(priv, tmp, None)
+                save_keypair(priv, tmp, passphrase=b"TestPassword123!")
 
     def test_missing_file(self) -> None:
         with self.assertRaises(KeyError_):
             load_public_key(Path("does/not/exist.pem"))
 
+    def test_private_key_requires_passphrase(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            priv, _ = generate_keypair()
+
+            with self.assertRaises(KeyError_):
+                save_keypair(priv, tmp, passphrase=None)
 
 if __name__ == "__main__":
     unittest.main()
+

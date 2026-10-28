@@ -30,6 +30,14 @@ class TestCli(unittest.TestCase):
                 self.assertEqual(main(["--key-dir", tmp, "decrypt", "-i", str(ct_file)]), 0)
             self.assertEqual(out.getvalue().strip(), "CLI test ✓")
 
+    def test_empty_passphrase_rejected(self) -> None:
+        from ecc_mail.cli import _passphrase
+        from ecc_mail.exceptions import EccMailError
+        from unittest import mock
+
+        with mock.patch("ecc_mail.cli.getpass.getpass", return_value=""):
+            with self.assertRaises(EccMailError):
+                _passphrase(confirm=True)
 
 if __name__ == "__main__":
     unittest.main()
